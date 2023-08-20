@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+        with:
+          ref: v2 # Specify the version to use
       
       - name: Set up JDK
         uses: actions/setup-java@v2
@@ -17,4 +19,3 @@ jobs:
         
       - name: Run Maven Build
         run: mvn clean test
-

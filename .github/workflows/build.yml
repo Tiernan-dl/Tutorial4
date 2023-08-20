@@ -1,3 +1,20 @@
-# Run tests
-   - name: Run Maven Build
-      run: mvn clean test
+name: Build and Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+        
+      - name: Run Maven Build
+        run: mvn clean test
+
